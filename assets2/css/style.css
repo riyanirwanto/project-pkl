@@ -33,9 +33,9 @@ body {
 }
 
 .content-wrapper {
-    margin-top: 40px;
     min-height: 600px;
     padding-bottom: 60px;
+    background-image:url("../img/bg-body.jpg");
 }
 
 .page-head-line {
@@ -99,6 +99,10 @@ header {
     padding-top: 30px;
 }
 
+ul.nav {
+    
+    color:#fff;
+}
 /* USER SETTINGS DIV */
 .user-settings-wrapper .nav > li > a {
     position: relative;
@@ -182,8 +186,9 @@ header {
 }
 
 .navbar-inverse {
-    background-color: #6964c3;
+    background-image:url("../img/bg-bapel.jpg");
     border-color: transparent;
+        background-size: cover;
 }
 
 .navbar-toggle {

@@ -64,7 +64,7 @@
     </section>
     <!-- MENU SECTION END-->
     <div class="content-wrapper">
-        <div class="container">
+        <div class="container" style=>
         <?php echo $content; ?>
         </div>
             <div class="row">
@@ -72,13 +72,14 @@
                 </div>
           </div>
         </div>
+
+
+
         <footer>
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
-                    
+                <div class="col-md-12">       
                 </div>
-
             </div>
         </div>
       </footer>
