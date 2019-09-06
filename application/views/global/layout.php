@@ -48,7 +48,7 @@
                             <li><a href="<?php echo base_url();?>Buku">Beranda</a></li>
                             <li><a href="<?php echo base_url();?>Buku/list_buku">Daftar Buku</a></li>
                             <li><a href="<?php echo base_url();?>Buku/profile">Tentang BAPELKES</a></li>
-                            <li><a href="<?php echo base_url();?>">E Book</a></li> 
+                            <li><a href="<?php echo base_url();?>Buku/profile1">E Book</a></li> 
          
                         </ul>
 

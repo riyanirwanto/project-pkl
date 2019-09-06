@@ -24,7 +24,14 @@ class Buku extends CI_Controller {
 		$this->load->view('global/layout',$tmp);
 		
 	}
+	
+	public function profile1(){
 
+		$data['title']='Profile Sekolah';
+		$tmp['content']=$this->load->view('global/profile1', $data,TRUE);
+		$this->load->view('global/layout',$tmp);
+		
+	}
 	//menampilkan daftar buku
 	public function list_buku(){
 		$data['title']='Daftar buku';
