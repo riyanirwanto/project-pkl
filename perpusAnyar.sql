@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 23 Agu 2019 pada 03.38
--- Versi Server: 10.1.29-MariaDB
--- PHP Version: 7.1.12
+-- Generation Time: Sep 04, 2019 at 02:59 PM
+-- Server version: 10.1.37-MariaDB
+-- PHP Version: 7.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_admin`
+-- Table structure for table `tb_admin`
 --
 
 CREATE TABLE `tb_admin` (
@@ -40,7 +40,7 @@ CREATE TABLE `tb_admin` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_agama`
+-- Table structure for table `tb_agama`
 --
 
 CREATE TABLE `tb_agama` (
@@ -49,7 +49,7 @@ CREATE TABLE `tb_agama` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_agama`
+-- Dumping data for table `tb_agama`
 --
 
 INSERT INTO `tb_agama` (`id_agama`, `agama`) VALUES
@@ -61,7 +61,7 @@ INSERT INTO `tb_agama` (`id_agama`, `agama`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_anggota`
+-- Table structure for table `tb_anggota`
 --
 
 CREATE TABLE `tb_anggota` (
@@ -76,19 +76,22 @@ CREATE TABLE `tb_anggota` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_anggota`
+-- Dumping data for table `tb_anggota`
 --
 
 INSERT INTO `tb_anggota` (`id_anggota`, `nama`, `id_kelas`, `id_agama`, `jenis_kelamin`, `hp`, `alamat`, `ket`) VALUES
-('ANGG000002', 'Abdullah', 4, 2, 'L', '019273981293871', 'tidak tau', 'belum ade keterangan'),
-('ANGG000003', 'Ariandi AS', 4, 2, 'L', '085382005325', 'dw', 'fdw'),
-('ANGG000004', 'sukoco', 5, 3, 'L', '087798789955', 'jln. jembatan merah', 'siswa'),
-('ANGG000005', 'Tri Gunawan', 6, 3, 'L', '345678909123981', 'test', 'belum nikah tapi sudah . . .');
+('ANGG000002', 'Siswanto', 4, 2, 'L', '085727859808', 'Semarang', 'Peminjaman Buku'),
+('ANGG000003', 'Faizal', 4, 2, 'L', '085382005325', 'Semarang', 'Pinjam Buku'),
+('ANGG000004', 'yulva widyana putri', 4, 2, 'P', '089789876568', 'Semarang', 'Mahasiswa'),
+('ANGG000005', 'Catur Noviana S', 4, 2, 'P', '083817385777', 'Semarang', 'Baca Buku'),
+('ANGG000006', 'Annisa Nurul A', 4, 2, 'P', '081802793445', 'Surakarta', 'Pelatihan'),
+('ANGG000007', 'Happy Hapsary', 4, 2, 'P', '081335325353', 'Surakarta', 'Pelatihan'),
+('ANGG000008', 'Anis Prmata Laksari', 4, 2, 'P', '08988989929', 'Surakarta', 'Pelatihan');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_buku`
+-- Table structure for table `tb_buku`
 --
 
 CREATE TABLE `tb_buku` (
@@ -105,21 +108,27 @@ CREATE TABLE `tb_buku` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_buku`
+-- Dumping data for table `tb_buku`
 --
 
 INSERT INTO `tb_buku` (`id_buku`, `ISBN`, `judul`, `id_kategori`, `id_penerbit`, `id_pengarang`, `no_rak`, `thn_terbit`, `stok`, `ket`) VALUES
-('1', '1244242', 'roso', 1, 1, 1, 1, 2017, 20, ''),
-('12', '961-097-21-234', 'Simulasi UNBK', 2, 4, 1, 1, 2013, 3, 'Siswa'),
-('12345678', '1234', 'test', 1, 1, 1, 1, 2019, 16, ''),
-('123458768687', '1244242', 'test', 1, 1, 1, 1, 2012, 18, 'feqfq'),
-('3', '23456', 'prakarya', 2, 1, 1, 1, 2019, 7, 'fefqefqefeq'),
-('6', '1244242', 'mboh', 3, 1, 1, 1, 2017, 0, '');
+('001', '001001', 'Asas-asas penelitian behavioral', 3, 4, 2, 3, 2000, 1, 'Cetakan 7'),
+('333', '3337', 'Analisis Mengenai Dampak Lingkungan', 1, 4, 5, 1, 1998, 2, 'Ada'),
+('334', '3347', 'Aspek Sosial AMDAL, Teori dan Metode', 1, 7, 7, 1, 1997, 2, 'Cetakan 2'),
+('347', '347016', 'Advokat Dan Comtemp Of Court Satu Proses di Dewan Kehormatan Profesi', 5, 1, 4, 5, 1996, 1, 'Ada'),
+('615', '615001', 'Biofarmasetika dan Farmakokinetika Terapan', 1, 8, 8, 1, 1988, 3, 'Cetakan 1'),
+('616', '616002', 'Bahan Pengajaran Gizi Masyarakat', 1, 9, 9, 1, 1988, 1, 'Cetakan 1'),
+('657', '657000', 'Auditing Modern Buku Satu', 2, 10, 13, 2, 1999, 4, 'Cetakan 4'),
+('658', '658001', 'Asas-asas Manajemen', 2, 6, 6, 2, 1986, 2, 'Ada'),
+('675', '67501', 'Akuntansi & Analisis Biaya', 4, 5, 3, 4, 2000, 1, 'Cetakan 2'),
+('767', '767004', 'Fisiologi Lingkungan Tanaman', 1, 4, 10, 1, 1981, 1, 'Cetakan 1'),
+('878', '878001', 'Genetika Manusia', 1, 4, 11, 1, 1997, 1, 'Cetakan 1'),
+('989', '989001', 'Hukum Tata Ligkungan', 1, 4, 12, 1, 2000, 1, 'Cetakan 1');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_denda`
+-- Table structure for table `tb_denda`
 --
 
 CREATE TABLE `tb_denda` (
@@ -129,7 +138,7 @@ CREATE TABLE `tb_denda` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_denda`
+-- Dumping data for table `tb_denda`
 --
 
 INSERT INTO `tb_denda` (`id_denda`, `denda`, `status`) VALUES
@@ -140,7 +149,7 @@ INSERT INTO `tb_denda` (`id_denda`, `denda`, `status`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_detail_buku`
+-- Table structure for table `tb_detail_buku`
 --
 
 CREATE TABLE `tb_detail_buku` (
@@ -151,61 +160,35 @@ CREATE TABLE `tb_detail_buku` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_detail_buku`
+-- Dumping data for table `tb_detail_buku`
 --
 
 INSERT INTO `tb_detail_buku` (`id_detail_buku`, `id_buku`, `no_buku`, `status`) VALUES
-(4, '12345678', 3, '0'),
-(22, '12345678', 1, '1'),
-(23, '12345678', 2, '1'),
-(24, '12345678', 3, '0'),
-(25, '12345678', 4, '1'),
-(26, '12345678', 5, '0'),
-(27, '12345678', 6, '1'),
-(28, '12345678', 7, '0'),
-(29, '12345678', 8, '1'),
-(30, '12345678', 9, '1'),
-(31, '12345678', 10, '1'),
-(32, '12345678', 11, '1'),
-(33, '12345678', 12, '1'),
-(34, '12345678', 13, '1'),
-(35, '12345678', 14, '1'),
-(36, '123458768687', 12, '1'),
-(37, '12', 1, '0'),
-(38, '12', 2, '1'),
-(39, '12', 3, '0'),
-(44, '3', 14, '1'),
-(45, '3', 15, '1'),
-(46, '3', 16, '1'),
-(47, '3', 17, '1'),
-(48, '3', 18, '1'),
-(49, '3', 19, '1'),
-(50, '3', 20, '1'),
-(51, '1', 1, '1'),
-(52, '1', 2, '1'),
-(53, '1', 3, '1'),
-(54, '1', 4, '1'),
-(55, '1', 5, '1'),
-(56, '1', 6, '1'),
-(57, '1', 7, '1'),
-(58, '1', 8, '1'),
-(59, '1', 9, '1'),
-(60, '1', 10, '1'),
-(61, '1', 11, '1'),
-(62, '1', 12, '1'),
-(63, '1', 13, '1'),
-(64, '1', 14, '1'),
-(65, '1', 15, '1'),
-(66, '1', 16, '1'),
-(67, '1', 17, '1'),
-(68, '1', 18, '1'),
-(69, '1', 19, '1'),
-(70, '1', 20, '1');
+(51, '333', 1, '1'),
+(52, '333', 2, '1'),
+(55, '347', 1, '1'),
+(56, '675', 1, '1'),
+(57, '001', 1, '0'),
+(58, '658', 1, '1'),
+(59, '658', 2, '1'),
+(60, '334', 1, '1'),
+(61, '334', 2, '1'),
+(62, '615', 1, '1'),
+(63, '615', 2, '1'),
+(64, '615', 3, '1'),
+(65, '616', 1, '1'),
+(66, '767', 1, '1'),
+(67, '878', 1, '1'),
+(68, '989', 1, '1'),
+(69, '657', 1, '1'),
+(70, '657', 2, '1'),
+(71, '657', 3, '1'),
+(72, '657', 4, '1');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_detail_pinjam`
+-- Table structure for table `tb_detail_pinjam`
 --
 
 CREATE TABLE `tb_detail_pinjam` (
@@ -217,21 +200,17 @@ CREATE TABLE `tb_detail_pinjam` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_detail_pinjam`
+-- Dumping data for table `tb_detail_pinjam`
 --
 
 INSERT INTO `tb_detail_pinjam` (`id_detail_pinjam`, `id_pinjam`, `id_buku`, `no_buku`, `flag`) VALUES
-(75, 71, '12345678', 2, 1),
-(76, 72, '12345678', 2, 1),
-(79, 72, '12', 3, 1),
-(80, 76, '12345678', 1, 1),
-(81, 78, '12', 3, 0),
-(82, 77, '12345678', 7, 0);
+(1, 80, '001', 1, 0),
+(2, 79, '333', 2, 1);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_kategori`
+-- Table structure for table `tb_kategori`
 --
 
 CREATE TABLE `tb_kategori` (
@@ -240,7 +219,7 @@ CREATE TABLE `tb_kategori` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_kategori`
+-- Dumping data for table `tb_kategori`
 --
 
 INSERT INTO `tb_kategori` (`id_kategori`, `kategori`) VALUES
@@ -253,7 +232,7 @@ INSERT INTO `tb_kategori` (`id_kategori`, `kategori`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_kelas`
+-- Table structure for table `tb_kelas`
 --
 
 CREATE TABLE `tb_kelas` (
@@ -262,7 +241,7 @@ CREATE TABLE `tb_kelas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_kelas`
+-- Dumping data for table `tb_kelas`
 --
 
 INSERT INTO `tb_kelas` (`id_kelas`, `kelas`) VALUES
@@ -275,7 +254,7 @@ INSERT INTO `tb_kelas` (`id_kelas`, `kelas`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_kembali`
+-- Table structure for table `tb_kembali`
 --
 
 CREATE TABLE `tb_kembali` (
@@ -288,18 +267,24 @@ CREATE TABLE `tb_kembali` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_kembali`
+-- Dumping data for table `tb_kembali`
 --
 
 INSERT INTO `tb_kembali` (`id_kembali`, `id_pinjam`, `tgl_dikembalikan`, `terlambat`, `id_denda`, `denda`) VALUES
 (191, 71, '2017-05-13', 5, 5, 15000),
 (192, 72, '2017-05-22', 1, 5, 3000),
-(193, 76, '2017-05-22', 1, 5, 3000);
+(193, 76, '2017-05-22', 1, 5, 3000),
+(195, 78, '2019-08-26', 826, 5, 2478000),
+(196, 78, '2019-08-13', 813, 5, 2439000),
+(197, 78, '2019-08-13', 813, 5, 2439000),
+(198, 78, '2019-08-13', 813, 5, 2439000),
+(199, 78, '2019-08-13', 813, 5, 2439000),
+(200, 79, '2019-08-13', 813, 5, 2439000);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_login`
+-- Table structure for table `tb_login`
 --
 
 CREATE TABLE `tb_login` (
@@ -309,7 +294,7 @@ CREATE TABLE `tb_login` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_login`
+-- Dumping data for table `tb_login`
 --
 
 INSERT INTO `tb_login` (`username`, `password`, `stts`) VALUES
@@ -322,7 +307,7 @@ INSERT INTO `tb_login` (`username`, `password`, `stts`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_penerbit`
+-- Table structure for table `tb_penerbit`
 --
 
 CREATE TABLE `tb_penerbit` (
@@ -332,17 +317,23 @@ CREATE TABLE `tb_penerbit` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_penerbit`
+-- Dumping data for table `tb_penerbit`
 --
 
 INSERT INTO `tb_penerbit` (`id_penerbit`, `nama_penerbit`, `id_provinsi`) VALUES
-(1, 'Gunawan', 1),
-(4, 'Andi', 2);
+(1, 'Djambatan', 8),
+(4, 'UGM Press', 2),
+(5, 'Rineka Cipta', 2),
+(6, 'Alumni Bandung', 9),
+(7, 'UGM', 2),
+(8, 'Air Langga UP', 10),
+(9, 'BPK Gunung Mulia', 2),
+(10, 'BPFE Yogyakarta', 2);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_pengarang`
+-- Table structure for table `tb_pengarang`
 --
 
 CREATE TABLE `tb_pengarang` (
@@ -351,18 +342,27 @@ CREATE TABLE `tb_pengarang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_pengarang`
+-- Dumping data for table `tb_pengarang`
 --
 
 INSERT INTO `tb_pengarang` (`id_pengarang`, `nama_pengarang`) VALUES
-(1, 'suroso'),
-(2, 'Tere Liye'),
-(3, 'Graha Mulia');
+(2, 'Fred N. Kerlinger'),
+(3, 'Drs. Abas Kartadinata'),
+(4, 'Luhut MP pangaribuan'),
+(5, 'Gunawan Suratmo'),
+(6, 'George R. Terry'),
+(7, 'Sudarto P Hadi'),
+(8, 'Leon Shargel'),
+(9, 'M Khumaidi'),
+(10, 'AH Fitter'),
+(11, 'Suryo'),
+(12, 'Koesnadi Hardjasoeman Tri'),
+(13, 'H S Munawir');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_petugas`
+-- Table structure for table `tb_petugas`
 --
 
 CREATE TABLE `tb_petugas` (
@@ -378,7 +378,7 @@ CREATE TABLE `tb_petugas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_petugas`
+-- Dumping data for table `tb_petugas`
 --
 
 INSERT INTO `tb_petugas` (`id_petugas`, `nama`, `img`, `jenis_kelamin`, `alamat`, `password`, `id_agama`, `hp`, `ket`) VALUES
@@ -391,7 +391,7 @@ INSERT INTO `tb_petugas` (`id_petugas`, `nama`, `img`, `jenis_kelamin`, `alamat`
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_pinjam`
+-- Table structure for table `tb_pinjam`
 --
 
 CREATE TABLE `tb_pinjam` (
@@ -404,21 +404,22 @@ CREATE TABLE `tb_pinjam` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_pinjam`
+-- Dumping data for table `tb_pinjam`
 --
 
 INSERT INTO `tb_pinjam` (`id_pinjam`, `tgl_pinjam`, `id_anggota`, `tgl_kembali`, `total_buku`, `status`) VALUES
 (71, '2017-05-14', 'ANGG000003', '2017-05-08', 1, 1),
 (72, '2017-05-14', 'ANGG000003', '2017-05-21', 2, 1),
 (76, '2017-05-20', 'ANGG000003', '2017-05-21', 1, 1),
-(77, '2017-05-21', 'ANGG000005', '2017-05-26', 1, 0),
-(78, '2017-05-21', 'ANGG000003', '2017-05-22', 1, 0),
-(79, '2017-05-21', 'ANGG000002', '2017-05-22', 0, 0);
+(78, '2017-05-21', 'ANGG000003', '2017-05-22', 1, 1),
+(79, '2017-05-21', 'ANGG000002', '2017-05-22', 2, 1),
+(80, '2019-08-26', 'ANGG000003', '2019-08-31', 1, 0),
+(81, '2019-08-30', 'ANGG000002', '2019-01-13', 0, 0);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_provinsi`
+-- Table structure for table `tb_provinsi`
 --
 
 CREATE TABLE `tb_provinsi` (
@@ -428,19 +429,23 @@ CREATE TABLE `tb_provinsi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_provinsi`
+-- Dumping data for table `tb_provinsi`
 --
 
 INSERT INTO `tb_provinsi` (`id_provinsi`, `nama_provinsi`, `kota`) VALUES
 (1, 'Sumatera Selatan', 'Palembang'),
 (2, 'D.I.Y Yogyakarta', 'Yogya'),
 (4, 'Jambi', 'Jambi Kota'),
-(6, 'Pekan Baru', 'Riau');
+(6, 'Pekan Baru', 'Riau'),
+(7, 'Nanggro Aceh', 'Aceh'),
+(8, 'Sumatra Utara', 'Medan'),
+(9, 'Jawa Barat', 'Bandung'),
+(10, 'Jawa Timur', 'Surabaya');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_rak`
+-- Table structure for table `tb_rak`
 --
 
 CREATE TABLE `tb_rak` (
@@ -450,16 +455,20 @@ CREATE TABLE `tb_rak` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_rak`
+-- Dumping data for table `tb_rak`
 --
 
 INSERT INTO `tb_rak` (`no_rak`, `nama_rak`, `id_kategori`) VALUES
-(1, '200-600', 1);
+(1, '1-3', 1),
+(2, '4-6', 2),
+(3, '7-9', 3),
+(4, '10-12', 4),
+(5, '13-17', 5);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `test`
+-- Table structure for table `test`
 --
 
 CREATE TABLE `test` (
@@ -469,7 +478,7 @@ CREATE TABLE `test` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `test`
+-- Dumping data for table `test`
 --
 
 INSERT INTO `test` (`kode`, `nama`, `mboh`) VALUES
@@ -627,13 +636,13 @@ ALTER TABLE `tb_denda`
 -- AUTO_INCREMENT for table `tb_detail_buku`
 --
 ALTER TABLE `tb_detail_buku`
-  MODIFY `id_detail_buku` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+  MODIFY `id_detail_buku` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
 
 --
 -- AUTO_INCREMENT for table `tb_detail_pinjam`
 --
 ALTER TABLE `tb_detail_pinjam`
-  MODIFY `id_detail_pinjam` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
+  MODIFY `id_detail_pinjam` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tb_kategori`
@@ -651,51 +660,51 @@ ALTER TABLE `tb_kelas`
 -- AUTO_INCREMENT for table `tb_kembali`
 --
 ALTER TABLE `tb_kembali`
-  MODIFY `id_kembali` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=194;
+  MODIFY `id_kembali` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=201;
 
 --
 -- AUTO_INCREMENT for table `tb_penerbit`
 --
 ALTER TABLE `tb_penerbit`
-  MODIFY `id_penerbit` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_penerbit` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `tb_pengarang`
 --
 ALTER TABLE `tb_pengarang`
-  MODIFY `id_pengarang` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_pengarang` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `tb_pinjam`
 --
 ALTER TABLE `tb_pinjam`
-  MODIFY `id_pinjam` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
+  MODIFY `id_pinjam` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
 
 --
 -- AUTO_INCREMENT for table `tb_provinsi`
 --
 ALTER TABLE `tb_provinsi`
-  MODIFY `id_provinsi` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_provinsi` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `tb_rak`
 --
 ALTER TABLE `tb_rak`
-  MODIFY `no_rak` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `no_rak` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `tb_anggota`
+-- Constraints for table `tb_anggota`
 --
 ALTER TABLE `tb_anggota`
   ADD CONSTRAINT `tb_anggota_ibfk_1` FOREIGN KEY (`id_agama`) REFERENCES `tb_agama` (`id_agama`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `tb_anggota_ibfk_2` FOREIGN KEY (`id_kelas`) REFERENCES `tb_kelas` (`id_kelas`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `tb_buku`
+-- Constraints for table `tb_buku`
 --
 ALTER TABLE `tb_buku`
   ADD CONSTRAINT `tb_buku_ibfk_1` FOREIGN KEY (`id_kategori`) REFERENCES `tb_kategori` (`id_kategori`) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -704,44 +713,44 @@ ALTER TABLE `tb_buku`
   ADD CONSTRAINT `tb_buku_ibfk_4` FOREIGN KEY (`no_rak`) REFERENCES `tb_rak` (`no_rak`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `tb_detail_buku`
+-- Constraints for table `tb_detail_buku`
 --
 ALTER TABLE `tb_detail_buku`
   ADD CONSTRAINT `tb_detail_buku_ibfk_1` FOREIGN KEY (`id_buku`) REFERENCES `tb_buku` (`id_buku`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `tb_detail_pinjam`
+-- Constraints for table `tb_detail_pinjam`
 --
 ALTER TABLE `tb_detail_pinjam`
   ADD CONSTRAINT `tb_detail_pinjam_ibfk_1` FOREIGN KEY (`id_pinjam`) REFERENCES `tb_pinjam` (`id_pinjam`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `tb_detail_pinjam_ibfk_2` FOREIGN KEY (`id_buku`) REFERENCES `tb_buku` (`id_buku`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `tb_kembali`
+-- Constraints for table `tb_kembali`
 --
 ALTER TABLE `tb_kembali`
   ADD CONSTRAINT `tb_kembali_ibfk_1` FOREIGN KEY (`id_pinjam`) REFERENCES `tb_pinjam` (`id_pinjam`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `tb_penerbit`
+-- Constraints for table `tb_penerbit`
 --
 ALTER TABLE `tb_penerbit`
   ADD CONSTRAINT `tb_penerbit_ibfk_1` FOREIGN KEY (`id_provinsi`) REFERENCES `tb_provinsi` (`id_provinsi`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `tb_petugas`
+-- Constraints for table `tb_petugas`
 --
 ALTER TABLE `tb_petugas`
   ADD CONSTRAINT `tb_petugas_ibfk_1` FOREIGN KEY (`id_agama`) REFERENCES `tb_agama` (`id_agama`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `tb_pinjam`
+-- Constraints for table `tb_pinjam`
 --
 ALTER TABLE `tb_pinjam`
   ADD CONSTRAINT `tb_pinjam_ibfk_1` FOREIGN KEY (`id_anggota`) REFERENCES `tb_anggota` (`id_anggota`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `tb_rak`
+-- Constraints for table `tb_rak`
 --
 ALTER TABLE `tb_rak`
   ADD CONSTRAINT `tb_rak_ibfk_1` FOREIGN KEY (`id_kategori`) REFERENCES `tb_kategori` (`id_kategori`) ON DELETE CASCADE ON UPDATE CASCADE;
